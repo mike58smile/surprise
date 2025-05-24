@@ -87,16 +87,10 @@
   box-shadow: 0 2px 8px rgba(210, 110, 240, 0.3);
 }
 
-#langToggle:hover {
+#langToggle:hover,
+#langToggle.hover {
   background-color: #d26ef0;
   color: white;
-}
-#langToggle.active {
-  transform: scale(0.95);
-  background-color: #b74bcf;
-  color: white;
-  transition: transform 0.1s ease;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.2) inset;
 }
 
   </style>
@@ -157,12 +151,15 @@ poslať mi cute fotku 🐶, vtipný meme 😂, alebo ma požiadať o ruku 💍<b
       lang = 'en';
     }
   });
-btn.addEventListener('touchstart', () => {
-  btn.classList.add('active');
-});
 
-btn.addEventListener('touchend', () => {
-  btn.classList.remove('active');
+  const langToggle = document.getElementById('langToggle');
+
+// For touch devices: simulate hover effect
+langToggle.addEventListener('touchstart', function() {
+  langToggle.classList.add('hover');
+});
+langToggle.addEventListener('touchend', function() {
+  setTimeout(() => langToggle.classList.remove('hover'), 200); // short delay for feedback
 });
 </script>
 
