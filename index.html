@@ -154,12 +154,25 @@ poslať mi cute fotku 🐶, vtipný meme 😂, alebo ma požiadať o ruku 💍<b
 
   const langToggle = document.getElementById('langToggle');
 
-// For touch devices: simulate hover effect
-langToggle.addEventListener('touchstart', function() {
+// For touch devices: simulate hover effect and always remove it after interaction
+langToggle.addEventListener('touchstart', function(e) {
   langToggle.classList.add('hover');
-});
-langToggle.addEventListener('touchend', function() {
-  setTimeout(() => langToggle.classList.remove('hover'), 200); // short delay for feedback
+}, {passive: true});
+
+langToggle.addEventListener('touchend', function(e) {
+  setTimeout(() => langToggle.classList.remove('hover'), 150); // short delay for feedback
+}, {passive: true});
+
+// Remove hover if user scrolls or touches anywhere else
+document.body.addEventListener('touchstart', function(e) {
+  if (e.target !== langToggle) {
+    langToggle.classList.remove('hover');
+  }
+}, {passive: true});
+
+// Also remove hover on scroll
+window.addEventListener('scroll', function() {
+  langToggle.classList.remove('hover');
 });
 </script>
 
