@@ -91,6 +91,13 @@
   background-color: #d26ef0;
   color: white;
 }
+#langToggle.active {
+  transform: scale(0.95);
+  background-color: #b74bcf;
+  color: white;
+  transition: transform 0.1s ease;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2) inset;
+}
 
   </style>
 </head>
@@ -150,6 +157,13 @@ poslať mi cute fotku 🐶, vtipný meme 😂, alebo ma požiadať o ruku 💍<b
       lang = 'en';
     }
   });
+btn.addEventListener('touchstart', () => {
+  btn.classList.add('active');
+});
+
+btn.addEventListener('touchend', () => {
+  btn.classList.remove('active');
+});
 </script>
 
 </body>
