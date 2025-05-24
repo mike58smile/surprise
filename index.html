@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michal's Smile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f, #ffdde1, #c1dfc4);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      animation: fadeIn 1.5s ease;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .smiley {
+      font-size: 3rem;
+      animation: pulse 2s infinite;
+    }
+
+    .text {
+      font-size: 1.2rem;
+      color: #333;
+      margin-top: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .ig {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .ig a {
+      color: #d26ef0;
+      text-decoration: none;
+      border-bottom: 1px dashed #d26ef0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+  #langToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  border: 2px solid #d26ef0;
+  background: white;
+  color: #d26ef0;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(210, 110, 240, 0.3);
+}
+
+#langToggle:hover {
+  background-color: #d26ef0;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+  <button id="langToggle">SK</button>
+  <div class="container">
+    <div class="smiley">(⁠人⁠ ⁠•͈⁠ᴗ⁠•͈⁠)</div>
+    <div class="text"></div>
+    <div class="ig"></div>
+  </div>
+<script>
+const enText = `Hii,<br />
+my name is Michal...<br />
+if you received something, I just wanted to make you smile ,<br />
+..<br />
+
+so I really hope I didn’t make your day worse <br />
+...<br />
+
+if you're curious who I am, wanna text me 💬, meet me 🤝,<br />
+send me a cute picture 🐶, funny meme 😂, or propose to me 💍<br />
+....`;
+
+const enIgText = `feel free to contact me on IG 📲<br />
+<a href="https://instagram.com/masimuso" target="_blank">@masimuso</a>`;
+
+const skText = `Ahoj,<br />
+moje meno je Michal... <br />
+ak si dostal/a niečo odo mňa, chcel som ti len vyčariť úsmev ,<br />
+..<br />
+
+naozaj dúfam, že som ti deň nezhoršil <br />
+...<br />
+
+ak si zvedavý/á kto som, chceš mi napísať 💬, stretnúť sa 🤝,<br />
+poslať mi cute fotku 🐶, vtipný meme 😂, alebo ma požiadať o ruku 💍<br />
+...`;
+  const skIgText = `môžeš ma kontaktovať na IG 📲<br />
+  <a href="https://instagram.com/masimuso" target="_blank">@masimuso</a>`;
+  
+  const textDiv = document.querySelector('.text');
+  const igDiv = document.querySelector('.ig');
+  const btn = document.getElementById('langToggle');
+  let lang = 'en';
+  document.querySelector('.text').innerHTML = enText;
+  document.querySelector('.ig').innerHTML = enIgText;
+  btn.addEventListener('click', () => {
+    if (lang === 'en') {
+      textDiv.innerHTML = skText;
+      igDiv.innerHTML = skIgText;
+      btn.textContent = 'EN';
+      lang = 'sk';
+    } else {
+      textDiv.innerHTML = enText;
+      igDiv.innerHTML = enIgText;
+      btn.textContent = 'SK';
+      lang = 'en';
+    }
+  });
+</script>
+
+</body>
+</html>
