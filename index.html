@@ -70,48 +70,61 @@
       100% { background-position: 0% 50%; }
     }
     
-  #langToggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 8px 16px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
-    border: 2px solid #d26ef0;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(210, 110, 240, 0.3);
-  }
+#langToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  border: 2px solid #d26ef0;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(210, 110, 240, 0.3);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
 
-  #langToggle.sk {
+#langToggle.sk {
+  background-color: #d26ef0;
+  color: #fff;
+}
+
+#langToggle.en {
+  background-color: #fff;
+  color: #d26ef0;
+
+}
+
+/* Hover len pre zariadenia s myšou */
+@media (hover: hover) {
+  #langToggle.sk:hover {
     background-color: #fff;
     color: #d26ef0;
-  }
-
-  #langToggle.en {
-    background-color: #d26ef0;
-    color: #fff;
-  }
-
-  #langToggle.sk:hover {
-    background-color: #d26ef0;
-    color: white;
   }
 
   #langToggle.en:hover {
-    background-color: #fff;
-    color: #d26ef0;
-  }
-
-  #langToggle:active {
-    transform: scale(0.95);
-    background-color: #b74bcf;
+    background-color: #d26ef0;
     color: white;
-    transition: transform 0.1s ease;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.2) inset;
   }
+}
+
+/* Focus štýly pre všetky zariadenia */
+#langToggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(210, 110, 240, 0.3);
+}
+
+#langToggle:active {
+  transform: scale(0.95);
+  background-color: #b74bcf;
+  color: white;
+  transition: transform 0.1s ease;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2) inset;
+}
+
   </style>
 </head>
 <body>
@@ -157,25 +170,33 @@ poslať mi cute fotku 🐶, vtipný meme 😂, alebo ma požiadať o ruku 💍<b
   let lang = 'en';
   document.querySelector('.text').innerHTML = enText;
   document.querySelector('.ig').innerHTML = enIgText;
-  btn.addEventListener('click', () => {
-    if (lang === 'en') {
-      textDiv.innerHTML = skText;
-      igDiv.innerHTML = skIgText;
-      btn.textContent = 'EN';
-      lang = 'sk';
-      btn.classList.remove('en');
-      btn.classList.add('sk');
+  btn.addEventListener('click', (e) => {
+  // Zabránenie dvojitému kliknutiu
+  e.preventDefault();
+  
+  if (lang === 'en') {
+    textDiv.innerHTML = skText;
+    igDiv.innerHTML = skIgText;
+    btn.textContent = 'EN';
+    lang = 'sk';
+    btn.classList.remove('en');
+    btn.classList.add('sk');
+  } else {
+    textDiv.innerHTML = enText;
+    igDiv.innerHTML = enIgText;
+    btn.textContent = 'SK';
+    lang = 'en';
+    btn.classList.remove('sk');
+    btn.classList.add('en');
+  }
+  
+  // Explicitné odstránenie focus na mobilných zariadeniach
+  btn.blur();
+  
+  // Force reflow
+  void btn.offsetWidth;
+});
 
-    } else {
-      textDiv.innerHTML = enText;
-      igDiv.innerHTML = enIgText;
-      btn.textContent = 'SK';
-      lang = 'en';
-      btn.classList.remove('sk');
-      btn.classList.add('en');
-    }
-    void btn.offsetWidth;
-  });
 
 </script>
 
