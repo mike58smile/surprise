@@ -18,9 +18,9 @@ body {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
     padding: 30px;
+    padding-bottom: 80px; /* Extra space so text doesn't overlap button */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    position: relative;
-    padding-bottom: 80px;
+    position: relative; /* This is essential for absolute positioning of the button */
 }
 
 .smiley {
@@ -142,34 +142,34 @@ body {
 }
 
 #soundBtn {
-  position: absolute;      /* inside the .container */
-  bottom: 20px;            /* 20px above the bottom of .container */
-  right: 20px;             /* 20px from the right edge of .container */
-  width: 40px;             /* smaller diameter */
-  height: 40px;
-  padding: 0;
-  background: #d9b4e4;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.2rem;       /* slightly smaller icon */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
-  z-index: 10;             /* below langToggle but above content */
+    position: absolute;      /* Position relative to .container */
+    bottom: 20px;            /* 20px from bottom of .container */
+    right: 20px;             /* 20px from right edge of .container */
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: #d9b4e4;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    z-index: 10;
 }
 
 #soundBtn:hover {
-  background: #b94ecf;
-  transform: scale(1.05);
+    background: #b94ecf;
+    transform: scale(1.05);
 }
 
 #soundBtn:active {
-  transform: scale(0.9);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2) inset;
+    transform: scale(0.9);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2) inset;
 }
 
 /* remove or keep this if you still need center-under-box on narrow viewports */
