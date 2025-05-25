@@ -61,8 +61,13 @@
     document.querySelector('.ig').innerHTML = enIgText;
 
     btn.addEventListener('click', (e) => {
-      // Zabránenie dvojitému kliknutiu
       e.preventDefault();
+
+      // stop any playing audio when switching language
+      audioEN.pause();
+      audioEN.currentTime = 0;
+      audioSK.pause();
+      audioSK.currentTime = 0;
 
       if (lang === 'en') {
         textDiv.innerHTML = skText;
