@@ -171,3 +171,15 @@ body {
     transform: scale(0.9);
     box-shadow: 0 2px 6px rgba(0,0,0,0.2) inset;
 }
+
+/* Add margin-top on mobile to avoid collision with buttons */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 80px; /* Push content below the buttons */
+    }
+    
+    /* Optional: reduce body padding on mobile for better spacing */
+    body {
+        padding: 10px;
+    }
+}
