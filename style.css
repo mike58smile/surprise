@@ -143,16 +143,16 @@ body {
 
 #soundBtn {
     position: absolute;      /* Position relative to .container */
-    bottom: 20px;            /* 20px from bottom of .container */
-    right: 20px;             /* 20px from right edge of .container */
-    width: 40px;
-    height: 40px;
+    top: 20px;               /* 20px from the top of the white box */
+    left: 20px;              /* 20px from the left of the white box */
+    width: 50px;             /* Same as #langToggle */
+    height: 50px;            /* Same as #langToggle */
     padding: 0;
     background: #d9b4e4;
     color: #fff;
     border: none;
-    border-radius: 50%;
-    font-size: 1.2rem;
+    border-radius: 50%;      /* Circular */
+    font-size: 1.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,12 +170,4 @@ body {
 #soundBtn:active {
     transform: scale(0.9);
     box-shadow: 0 2px 6px rgba(0,0,0,0.2) inset;
-}
-
-/* remove or keep this if you still need center-under-box on narrow viewports */
-@media (max-width: 600px) {
-  #soundBtn {
-    right: 20px;   /* same offset */
-    /* left/transform removed so it stays in bottom-right of container */
-  }
 }
