@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f, #ffdde1, #c1dfc4);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    animation: fadeIn 1.5s ease;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.smiley {
+    font-size: 3rem;
+    animation: pulse 2s infinite;
+}
+
+.text {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 1.5rem;
+    line-height: 1.8;
+}
+
+.ig {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.ig a {
+    color: #d26ef0;
+    text-decoration: none;
+    border-bottom: 1px dashed #d26ef0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#langToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    border: 2px solid #d26ef0;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(210, 110, 240, 0.3);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#langToggle.sk {
+    background-color: #d26ef0;
+    color: #fff;
+}
+
+#langToggle.en {
+    background-color: #fff;
+    color: #d26ef0;
+
+}
+
+/* Hover len pre zariadenia s myšou */
+@media (hover: hover) {
+    #langToggle.sk:hover {
+        background-color: #fff;
+        color: #d26ef0;
+    }
+
+    #langToggle.en:hover {
+        background-color: #d26ef0;
+        color: white;
+    }
+}
+
+/* Focus štýly pre všetky zariadenia */
+#langToggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(210, 110, 240, 0.3);
+}
+
+#langToggle:active {
+    transform: scale(0.95);
+    background-color: #b74bcf;
+    color: white;
+    transition: transform 0.1s ease;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+#soundBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background: #d26ef0;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+  z-index: 1000;
+}
+
+#soundBtn:hover {
+  background: #b94ecf;
+  transform: scale(1.1);
+}
+
+#soundBtn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2) inset;
+}
