@@ -5,20 +5,21 @@ body {
     animation: gradientBG 15s ease infinite;
     font-family: 'Quicksand', sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-start; /* Align to top */
     align-items: center;
-    height: 100vh;
+    /* height: 100vh;  <-- REMOVE THIS */
     text-align: center;
     padding: 20px;
 }
 
 .container {
     max-width: 600px;
+    margin-top: 65px;
     animation: fadeIn 1.5s ease;
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
     padding: 30px;
-    padding-bottom: 80px; /* Extra space so text doesn't overlap button */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     position: relative; /* This is essential for absolute positioning of the button */
 }
@@ -142,16 +143,16 @@ body {
 }
 
 #soundBtn {
-    position: absolute;      /* Position relative to .container */
-    top: 20px;               /* 20px from the top of the white box */
-    left: 20px;              /* 20px from the left of the white box */
-    width: 50px;             /* Same as #langToggle */
-    height: 50px;            /* Same as #langToggle */
+    position: fixed;      /* Fixed to viewport */
+    top: 20px;            /* 20px from the top of the viewport */
+    left: 20px;           /* 20px from the left of the viewport */
+    width: 50px;
+    height: 50px;
     padding: 0;
     background: #d9b4e4;
     color: #fff;
     border: none;
-    border-radius: 50%;      /* Circular */
+    border-radius: 50%;
     font-size: 1.4rem;
     display: flex;
     align-items: center;
@@ -159,7 +160,7 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     cursor: pointer;
     transition: transform 0.2s ease, background 0.3s ease;
-    z-index: 10;
+    z-index: 1000;
 }
 
 #soundBtn:hover {
@@ -172,14 +173,9 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.2) inset;
 }
 
-/* Add margin-top on mobile to avoid collision with buttons */
-@media (max-width: 768px) {
-    .container {
-        margin-top: 80px; /* Push content below the buttons */
-    }
-    
-    /* Optional: reduce body padding on mobile for better spacing */
+/* Add this for mobile screens */
+@media (max-width: 600px) {
     body {
-        padding: 10px;
+        padding: 20px;
     }
 }
