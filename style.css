@@ -19,6 +19,8 @@ body {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 80px;
 }
 
 .smiley {
@@ -140,32 +142,40 @@ body {
 }
 
 #soundBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
+  position: absolute;      /* inside the .container */
+  bottom: 20px;            /* 20px above the bottom of .container */
+  right: 20px;             /* 20px from the right edge of .container */
+  width: 40px;             /* smaller diameter */
+  height: 40px;
   padding: 0;
   background: #d9b4e4;
   color: #fff;
   border: none;
   border-radius: 50%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;       /* slightly smaller icon */
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   cursor: pointer;
   transition: transform 0.2s ease, background 0.3s ease;
-  z-index: 1000;
+  z-index: 10;             /* below langToggle but above content */
 }
 
 #soundBtn:hover {
   background: #b94ecf;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 #soundBtn:active {
-  transform: scale(0.95);
+  transform: scale(0.9);
   box-shadow: 0 2px 6px rgba(0,0,0,0.2) inset;
+}
+
+/* remove or keep this if you still need center-under-box on narrow viewports */
+@media (max-width: 600px) {
+  #soundBtn {
+    right: 20px;   /* same offset */
+    /* left/transform removed so it stays in bottom-right of container */
+  }
 }
